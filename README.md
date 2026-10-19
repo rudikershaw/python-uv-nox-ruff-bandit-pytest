@@ -37,7 +37,7 @@ While working on the project we recommend you use `uv run` to run any project re
    ```
 3. Run the full `nox` session.
    ```bash
-   uv nox run
+   uv run nox
    ```
 
 ## Development Workflow

@@ -60,7 +60,7 @@ show_missing = true
 fail_under = 98
 
 [tool.mypy]
-python_version = "3.12"
+python_version = "3.13"
 strict = true
 warn_return_any = true
 warn_unused_configs = true
@@ -69,35 +69,27 @@ disallow_untyped_defs = true
 disallow_any_unimported = true
 
 [tool.ruff.lint]
-select = [
-    "E",   # pycodestyle errors
-    "W",   # pycodestyle warnings
-    "F",   # pyflakes
-    "I",   # isort
-    "N",   # pep8-naming
-    "UP",  # pyupgrade
-    "B",   # flake8-bugbear
-    "C4",  # flake8-comprehensions
-    "SIM", # flake8-simplify
-    "D",   # pydocstyle (docstrings)
-    "T20", # flake8-print
-    "RUF", # ruff-specific rules
-    "ARG", # flake8-unused-arguments
-    "PTH", # flake8-use-pathlib
-    "A",   # flake8-builtins
-    "ERA", # eradicate commented-out code
-    "PL",  # pylint
-]
+extend-select = ["ALL"]
 ignore = [
-    "D203",  # Conflicts with D211 (PEP 257: no blank line before class)
-    "D213",  # Conflicts with D212 (PEP 257: summary on first line)
+    # Formatter-conflicting rules under default space/double-quote settings
+    "COM812",
+    "COM819",
+    "D300",
+    # Pydantic needs types imported at runtime.
+    "TC001",
+    "TC002",
+    "TC003",
+    # Per file copyright notices are totally redundant.
+    "CPY001"
 ]
 
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
 [tool.ruff.lint.per-file-ignores]
-"tests/**/*.py" = [
-    "S101",  # assert is the standard way to write tests
-    "D",     # test docstrings are descriptive, not API documentation
-    "ARG",   # test helpers often match callback signatures without using all args
+"tests/**" = [
+    "D1",   # Undocumented public definitions in tests
+    "S101", # Required by PT009 (pytest-unittest-assertion demands bare assert)
 ]
 
 [build-system]

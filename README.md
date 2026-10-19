@@ -16,7 +16,7 @@
 
 Project template for an opinionated but simple project setup using uv, nox, ruff, mypy, bandit, lizard,  audit, and pytest. 
 
-This is my current preferred basic python project setup. For anything you intend to work seriously on consider adding pytest-cov, pytest-benchmark, assertpy, etc. To use, simply fork the project and crack on.
+This is my current preferred basic python project setup. For anything you intend to work seriously on consider adding pytest-benchmark, assertpy, etc. To use, simply fork the project and crack on.
 
 ## Prerequisites
 

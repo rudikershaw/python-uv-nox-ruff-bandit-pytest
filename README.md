@@ -33,7 +33,7 @@ While working on the project we recommend you use `uv run` to run any project re
 1. Clone the repository.
 2. Install dependencies (including dev dependencies):
    ```bash
-   uv sync
+   uv sync --all-groups
    ```
 3. Run the full `nox` session.
    ```bash

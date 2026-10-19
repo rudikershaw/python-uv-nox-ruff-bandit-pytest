@@ -38,4 +38,5 @@ def tests(session: Session) -> None:
         "pytest",
         "tests",
         "--doctest-modules",
+        "--cov=src",
     )

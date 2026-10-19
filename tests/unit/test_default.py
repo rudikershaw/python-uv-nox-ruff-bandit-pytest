@@ -1,6 +1,14 @@
 """Default test."""
 
+import runpy
+from pathlib import Path
 
-def test_tests() -> None:
-    """Test that tests are working."""
-    assert True
+import pytest
+
+from main import main as main_module
+
+
+def test_main(caplog: pytest.LogCaptureFixture) -> None:
+    with caplog.at_level("INFO"):
+        runpy.run_path(str(Path(main_module.__file__)), run_name="__main__")
+    assert "This is the main module." in caplog.text

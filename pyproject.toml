@@ -32,23 +32,18 @@ lint = [
     "lizard>=1.24.1",
 ]
 test = [
-    "pytest>=9.0.0",
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
 ]
 
 [tool.ruff]
 line-length = 120
-target-version = "py312"
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
-python_files = ["test_*.py"]
-python_classes = ["Test*"]
-python_functions = ["test_*"]
+addopts = "--cov=src --cov-report html --cov-report term"
 
 [tool.coverage.run]
-source = ["src"]
 branch = true
-omit = ["*/tests/*", "*/test_*.py"]
 data_file = "reports/.coverage"
 
 [tool.coverage.html]
